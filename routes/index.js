@@ -51,7 +51,7 @@ router.post("/register", async (req, res) => {
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=https://url-shortner-frontend.vercel.app/confirm/${token}>Register verification</a>
+        <a href=https://url-shortner-frontend.vercel.app/register-confirm/${token}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -135,7 +135,7 @@ router.post("/login", async (req, res) => {
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=https://url-shortner-frontend.vercel.app/confirm/${token1}>Register verification</a>
+        <a href=https://url-shortner-frontend.vercel.app/register-confirm/${token1}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -183,7 +183,7 @@ router.post("/forgot-password", async (req, res) => {
         html: `<h2>Hello ${name}</h2>
       <p>We've recieved a request to reset the password for your account associated with your email.
       You can reset your password by clicking the link below</p>
-      <a href=https://url-shortner-frontend.vercel.app/verify/${token}> Reset Password</a>
+      <a href=https://url-shortner-frontend.vercel.app/confirm/${token}> Reset Password</a>
       <p><b>Note:</b>The link expires 5 minutes from now</p>
       </div>`,
       };
