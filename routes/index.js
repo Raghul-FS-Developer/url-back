@@ -39,12 +39,12 @@ router.post("/register", async (req, res) => {
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
@@ -123,12 +123,12 @@ router.post("/login", async (req, res) => {
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
@@ -171,12 +171,12 @@ router.post("/forgot-password", async (req, res) => {
       var sender = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "fullstackdeveloper772@gmail.com",
+          user: "stackdeveloper112@gmail.com",
           pass: process.env.pass,
         },
       });
       var composeMail = {
-        from: "fullstackdeveloper772@gmail.com",
+        from: "stackdeveloper112@gmail.com",
         to: req.body.email,
         subject: `Reset-password-verification`,
         text: "",
@@ -191,10 +191,12 @@ router.post("/forgot-password", async (req, res) => {
       sender.sendMail(composeMail, (error) => {
         if (error) {
           console.log(error);
-        } 
+        } else{
+          res.json({ statuscode: 200});
+        }
       });
 
-      res.json({ statuscode: 200});
+      
     
     } else {
       res.json({ statuscode: 400, message: "Email does not exist" });
