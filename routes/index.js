@@ -3,10 +3,10 @@ var router = express.Router();
 var mongoose = require('mongoose')
 var nodemailer = require("nodemailer");
 require('dotenv').config()
-
+const turl = require('turl');
 const url =  require('../schema2')
 const users = require("../schema");
-var shortUrl = require("node-url-shortener");
+
 
 
 mongoose.connect(process.env.URL).then(()=>console.log('db connected successfully'));
@@ -231,19 +231,19 @@ router.post("/verify/:token", async (req, res) => {
 });
 router.post("/shortner",async(req,res)=>{
    try {
+
   
-   shortUrl.short(req.body.longUrl, function (err, url) {
-       console.log(err);
-       console.log(url);
-       res.json({
-         statuscode:200,
-          url:url
-       })
-    
+  turl.shorten(req.body.longUrl).then((data) => {
+    res.json({
+      statuscode:200,
+      url:data
      })
-  
+  }).catch((err) => {
+    console.log(err);
+  });
 
       
+   
    
    } catch (error) {
      console.log(error)
